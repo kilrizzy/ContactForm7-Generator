@@ -113,6 +113,11 @@
                 messageOutputLines[messageOutputLines.length] = messageOutputField;
             }
         }
+        //Add submit button
+        formOutputLine = $(settings.field_wrapper);
+        formOutputLine.append('[submit "Send"]');
+        formOutputLines[formOutputLines.length] = formOutputLine[0].outerHTML;
+        //Create output from arrays
         formOutput = formOutputLines.join("\n");
         messageOutput = messageOutputLines.join("\n");
         //Add to display
