@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>WP Contact Form 7 Form Generator</title>
+	<link type="text/css" rel="stylesheet" href="css/main.css"  />
+	<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="js/jquery.contactform7-generator.js"></script>
+	<script>
+    $(document).ready(function() {
+    	//Generate Input Fields
+    	$('#input_form_container').CF7Generator({
+    		'field_count' : 20,
+    		'form_result' : '#form_result',
+    		'message_result' : '#message_result'
+    	});
+    });
+    </script>
+</head>
+<body>
+	<div id="page" class="container">
+		<div id="header">
+			<h1>WP Contact Form 7 Form Generator</h1>
+		</div>
+		<div id="main">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Form</th>
+						<th>Message Body</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<textarea id="form_result" class="input-block-level" rows="8"></textarea></td>
+						<td><textarea id="message_result" class="input-block-level" rows="8"></textarea></td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="alert"><strong>Note:</strong> Make sure you fill out the Mail <strong>from</strong> and <strong>subject</strong> fields with the appropriate data</p>
+			<hr/>
+			<div id="input_form_container"></div>
+		</div>
+		<footer id="footer">
+			<div id="copyright">
+				<p>Magic by <a href="http://jeffkilroy.com" class="btn btn-mini">Jeff Kilroy</a></p>
+			</div><!-- #copyright -->
+		</footer><!-- #footer -->
+	</div>
+</body>
+</html>
