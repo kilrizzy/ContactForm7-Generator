@@ -119,7 +119,9 @@
         formOutputLines[formOutputLines.length] = formOutputLine[0].outerHTML;
         //Create output from arrays
         formOutput = formOutputLines.join("\n");
+        formOutput = CF7GeneratorHTMLEncode(formOutput);
         messageOutput = messageOutputLines.join("\n");
+        messageOutput = CF7GeneratorHTMLEncode(messageOutput);
         //Add to display
         $(form_result).html(formOutput);
         $(message_result).html(messageOutput);
@@ -168,6 +170,16 @@
         string = string.replace(" ","_");
         string = string.replace(/\W/g, '')
         return string;
+    }
+
+    function CF7GeneratorHTMLEncode(value){
+      //create a in-memory div, set it's inner text(which jQuery automatically encodes)
+      //then grab the encoded contents back out.  The div never exists on the page.
+      return $('<div/>').text(value).html();
+    }
+
+    function F7GeneratorHTMLDecode(value){
+      return $('<div/>').html(value).text();
     }
 
     /**
