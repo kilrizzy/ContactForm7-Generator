@@ -15,6 +15,16 @@
     		'form_result' : '#form_result',
     		'message_result' : '#message_result'
     	});
+
+    	$('#bt_copy_form_text').click(function(){
+    		copyToClipboard($('#form_result').val());
+    	});
+    	$('#bt_copy_message_text').click(function(){
+    		copyToClipboard($('#message_result').val());
+    	});
+    	function copyToClipboard(text) {
+		  window.prompt("Copy to clipboard: Ctrl+C, Enter", text);
+		}
     });
     </script>
 </head>
@@ -27,8 +37,8 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>Form</th>
-						<th>Message Body</th>
+						<th>Form ('<a href="#" id="bt_copy_form_text" class="btn btn-small">Copy</a>')</th>
+						<th>Message Body ('<a href="#" id="bt_copy_message_text" class="btn btn-small">Copy</a>')</th>
 					</tr>
 				</thead>
 				<tbody>
