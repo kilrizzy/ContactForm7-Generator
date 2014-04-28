@@ -25,7 +25,7 @@
         //Form Wrapper
         var formElement = $('<form>');
         //Button
-        var generateButton = $('<p><button type="button" class="btn btn-primary btn-large generate-button">Generate</button><p>');
+        var generateButton = $('<p><button type="button" class="btn btn-primary btn-lg generate-button">Generate</button><p>');
         formElement.append(generateButton);
         //Table
         var fieldTable = $('<table class="table table-hover table-bordered">');
@@ -44,12 +44,12 @@
             fieldTableBodyRow = $('<tr>');
             //add each field
             //label
-            fieldTableBodyRow.append('<td><input type="text" class="input-block-level" name="label'+i+'" /></td>');
+            fieldTableBodyRow.append('<td><input type="text" class="form-control" name="label'+i+'" /></td>');
             //name
-            fieldTableBodyRow.append('<td><input type="text" class="input-block-level" name="name'+i+'" placeholder="Leave Blank" /></td>');
+            fieldTableBodyRow.append('<td><input type="text" class="form-control" name="name'+i+'" placeholder="Leave Blank" /></td>');
             //select
             fieldTypeSelectCell = $('<td>');
-            fieldTypeSelect = $('<select class="input-block-level" name="type'+i+'">');
+            fieldTypeSelect = $('<select class="form-control" name="type'+i+'">');
             fieldTypeSelect.append('<option value="text">Text Field</option>');
             fieldTypeSelect.append('<option value="email">Email</option>');
             fieldTypeSelect.append('<option value="textarea">Text Area</option>');
@@ -59,10 +59,10 @@
             fieldTypeSelectCell.append(fieldTypeSelect);
             fieldTableBodyRow.append(fieldTypeSelectCell);
             //options
-            fieldTableBodyRow.append('<td><input type="text" class="input-block-level" name="options'+i+'" placeholder="Option 1 | Option2 | Option3" /></td>');
+            fieldTableBodyRow.append('<td><input type="text" class="form-control" name="options'+i+'" placeholder="Option 1 | Option2 | Option3" /></td>');
             //required
             fieldTypeRequiredCell = $('<td>');
-            fieldTypeRequired = $('<select class="input-block-level" name="required'+i+'">');
+            fieldTypeRequired = $('<select class="form-control" name="required'+i+'">');
             fieldTypeRequired.append('<option value="1">Yes</option>');
             fieldTypeRequired.append('<option value="0">No</option>');
             fieldTypeRequiredCell.append(fieldTypeRequired);
@@ -140,6 +140,7 @@
         if(field.required == 1){
             r = '*';
         }
+        var classname = 'form-control';
         var options = '';
         if(field.options){
             option_array = field.options.split("|");
@@ -148,7 +149,7 @@
             }
             options = option_array.join(' ');
         }
-        output += '['+field.type+''+r+' '+field.name+' '+options+']';
+        output += '['+field.type+''+r+' '+field.name+' class:'+classname+' '+options+']';
         //return
         return output;
     }
